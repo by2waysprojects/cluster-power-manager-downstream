@@ -29,8 +29,16 @@ jobs:
           VERSION: "5.1.0"
           BUNDLE_VERSION: "5.1.0"
         run: |
+          # operator-sdk doesn't prune files it no longer generates; start clean so stale files show as deletions
+          rm -rf bundle/
           make bundle
-          sed -i '/^[[:space:]]*createdAt:/d' \
-            bundle/manifests/cluster-power-manager.clusterserviceversion.yaml
-          git add --all --force -- bundle/
-          git diff --cached --exit-code -- bundle/
+          git add --all --force -- bundle/ bundle.Dockerfile
+          csv=bundle/manifests/cluster-power-manager.clusterserviceversion.yaml
+          rc=0
+          # make bundle changes/adds createdAt on every run; ignore it only in the CSV
+          git diff --cached --exit-code -I '^[[:space:]]*createdAt:' -- "$csv" || rc=1
+          git diff --cached --exit-code -- bundle/ bundle.Dockerfile ":(exclude)$csv" || rc=1
+          if [ "$rc" -ne 0 ]; then
+            echo "::error::bundle is out of date. Run 'rm -rf bundle && OCP=$OCP IMAGE_REGISTRY=$IMAGE_REGISTRY VERSION=$VERSION BUNDLE_VERSION=$BUNDLE_VERSION make bundle' and commit the changes to bundle/ and bundle.Dockerfile."
+          fi
+          exit $rc
