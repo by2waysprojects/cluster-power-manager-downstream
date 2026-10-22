@@ -14,7 +14,6 @@ metadata:
       target_branch == "main" &&
       (
         '.konflux/container_build_args.conf'.pathChanged() ||
-        '.konflux/lock-runtime/***'.pathChanged() ||
         '.tekton/build-pipeline.yaml'.pathChanged() ||
         '.tekton/cluster-power-manager-node-agent-5-1-push.yaml'.pathChanged() ||
         'api/***'.pathChanged() ||
