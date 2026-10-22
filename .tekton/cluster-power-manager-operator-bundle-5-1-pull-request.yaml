@@ -21,7 +21,6 @@ metadata:
         '.tekton/cluster-power-manager-operator-bundle-5-1-pull-request.yaml'.pathChanged() ||
         'bundle/***'.pathChanged() ||
         'config/***'.pathChanged() ||
-        'hack/***'.pathChanged() ||
         'telco5g-konflux'.pathChanged() ||
         'telco5g-konflux/***'.pathChanged()
       )
