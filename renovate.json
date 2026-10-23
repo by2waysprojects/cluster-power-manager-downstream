@@ -1,8 +1,5 @@
 {
     "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-    "extends": [
-        "github>konflux-ci/mintmaker-presets:refresh-rpm-lockfiles"
-    ],
     "automergeStrategy": "rebase",
     "automergeType": "pr",
     "customManagers": [
@@ -58,14 +55,6 @@
             "platformAutomerge": true,
             "schedule": [
                 "at any time"
-            ]
-        },
-        {
-            "addLabels": [
-                "allow-automatic-merge"
-            ],
-            "matchManagers": [
-                "rpm-lockfile"
             ]
         },
         {

@@ -19,6 +19,7 @@ metadata:
         'api/***'.pathChanged() ||
         'build/Dockerfile'.pathChanged() ||
         'build/manager/***'.pathChanged() ||
+        'build/manifests/***'.pathChanged() ||
         'config/***'.pathChanged() ||
         'controllers/***'.pathChanged() ||
         'go.mod'.pathChanged() ||
