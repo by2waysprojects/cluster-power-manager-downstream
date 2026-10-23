@@ -19,6 +19,7 @@ metadata:
         '.konflux/overlay/***'.pathChanged() ||
         '.tekton/build-pipeline.yaml'.pathChanged() ||
         '.tekton/cluster-power-manager-operator-bundle-5-1-pull-request.yaml'.pathChanged() ||
+        '.tekton/cluster-power-manager-operator-bundle-5-1-push.yaml'.pathChanged() ||
         'bundle/***'.pathChanged() ||
         'config/***'.pathChanged() ||
         'telco5g-konflux'.pathChanged() ||
