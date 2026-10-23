@@ -49,8 +49,6 @@ spec:
       value: .konflux/container_build_args.conf
     - name: hermetic
       value: "true"
-    - name: prefetch-input
-      value: gomod
     - name: build-source-image
       value: "true"
     - name: skip-preflight
